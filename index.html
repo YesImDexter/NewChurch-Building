@@ -4,41 +4,307 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Church Lucky Draw - Coming Soon</title>
+    <title>St. Paul Church Lucky Draw 2026 - Coming Soon</title>
     <style>
         body {
-            background: #f4ecd8;
+            background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 50%, #88d8c0 100%);
+            min-height: 100vh;
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
         }
 
         .container {
-            max-width: 400px;
-            margin: 100px auto;
-            background: #f8f5f0;
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 16px;
-            box-shadow: 0 6px 32px rgba(120, 72, 0, 0.08);
-            padding: 48px 24px;
+            box-shadow: 0 6px 32px rgba(0, 128, 128, 0.15);
+            padding: 48px 32px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
         h1 {
-            color: #7c5e3c;
+            color: #0d7377;
             margin-bottom: 10px;
-            font-size: 2em;
+            font-size: 2.2em;
             font-weight: 600;
+        }
+
+        .subtitle {
+            color: #14a085;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .church-vision {
+            margin: 30px 0;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(20, 160, 133, 0.2);
+        }
+
+        .church-vision h3 {
+            color: #0d7377;
+            margin: 0 0 15px 0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .church-image-container {
+            margin: 20px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0, 128, 128, 0.2);
+            position: relative;
+        }
+
+        .church-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .church-image:hover {
+            transform: scale(1.02);
+        }
+
+        .vision-text {
+            color: #0d7377;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-top: 15px;
+            font-style: italic;
+        }
+
+        .ticket-container {
+            margin: 30px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 128, 128, 0.2);
+        }
+
+        .ticket-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .prizes-section {
+            margin: 20px 0;
+        }
+
+        .prizes-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .prizes-header h3 {
+            color: #0d7377;
+            font-size: 1.4em;
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .prize-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px rgba(0, 128, 128, 0.12);
+            border: 1px solid rgba(20, 160, 133, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .prize-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 48px rgba(0, 128, 128, 0.2);
+        }
+
+        .prize-card.grand-prize {
+            background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+            color: white;
+        }
+
+        .prize-card.grand-prize:hover {
+            box-shadow: 0 12px 48px rgba(13, 115, 119, 0.4);
+        }
+
+        .prize-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .prize-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            background: rgba(20, 160, 133, 0.15);
+        }
+
+        .grand-prize .prize-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .prize-title {
+            flex: 1;
+        }
+
+        .prize-name {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+        }
+
+        .prize-subtitle {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .prize-description {
+            font-size: 1em;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .consolation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .consolation-item {
+            background: rgba(20, 160, 133, 0.1);
+            padding: 8px 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.85em;
+            font-weight: 500;
+            color: #0d7377;
+        }
+
+        @media (min-width: 768px) {
+            .prizes-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .grand-prize {
+                grid-column: 1 / -1;
+            }
+        }
+
+        .price-highlight {
+            background: linear-gradient(45deg, #17a2b8, #14a085);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            display: inline-block;
+            margin: 15px 0;
+            box-shadow: 0 3px 15px rgba(0, 128, 128, 0.3);
+        }
+
+        .draw-date {
+            background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-weight: 500;
+            box-shadow: 0 3px 15px rgba(0, 128, 128, 0.2);
+        }
+
+        .draw-info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .info-item svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 600px) {
+            .draw-info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+
+        .qr-info {
+            background: rgba(20, 160, 133, 0.1);
+            border: 1px solid #14a085;
+            color: #0d7377;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.95em;
         }
 
         .logo {
             width: 64px;
             margin-bottom: 18px;
-            filter: sepia(0.7) hue-rotate(-20deg) saturate(0.7);
+            filter: hue-rotate(160deg) saturate(1.2) brightness(0.8);
         }
 
         .coming-soon {
             font-size: 1.5em;
-            color: #a67c52;
+            color: #14a085;
             margin-top: 32px;
             font-weight: 500;
             letter-spacing: 1px;
@@ -46,14 +312,102 @@
 
         .footer {
             margin-top: 32px;
-            color: #bfae98;
+            color: #5a9b95;
             font-size: 0.95em;
         }
 
-        .footer {
-            margin-top: 40px;
-            color: #b2bec3;
+        .contact-section {
+            background: linear-gradient(135deg, #e8f8f5 0%, #d1f2eb 100%);
+            padding: 24px;
+            margin: 30px 0 20px 0;
+            border-radius: 12px;
+            border-left: 4px solid #14a085;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+        }
+
+        .contact-item svg {
+            width: 18px;
+            height: 18px;
+            color: #14a085;
+            flex-shrink: 0;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            color: #0d7377;
             font-size: 0.95em;
+        }
+
+        .contact-phone {
+            color: #14a085;
+            font-size: 0.9em;
+            margin-top: 2px;
+        }
+
+        .contact-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .contact-phone-link {
+            color: #14a085;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-phone-link:hover {
+            color: #0d7377;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #25D366;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 0.75em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-1px);
+        }
+
+        .contact-disclaimer {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            color: #856404;
+            padding: 12px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-size: 0.85em;
+            text-align: center;
         }
     </style>
 </head>
@@ -61,12 +415,242 @@
 <body>
     <div class="container">
         <img src="https://img.icons8.com/ios-filled/100/000000/church.png" alt="Church Logo" class="logo">
-        <h1>Church Lucky Draw</h1>
-        <p style="color:#7c5e3c; font-size:1.08em; margin:18px 0 0 0;">A new way to support our church building.<br>Stay
-            tuned for your chance to join!</p>
-        <div class="coming-soon">Coming Soon</div>
+        <h1>St. Paul Church, Bunuk</h1>
+        <div class="subtitle">New Church Building Fundraising</div>
+
+        <div class="church-vision">
+            <h3>
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                </svg>
+                Our Vision: New Church Building
+            </h3>
+            <div class="church-image-container">
+                <img src="./assets/Church-Picture.jpeg" alt="New St. Paul Church Building" class="church-image">
+            </div>
+            <div class="vision-text">
+                "Building more than walls - creating a sacred space where our community can gather, worship, and grow in
+                faith together."
+            </div>
+        </div>
+
+        <div class="ticket-container">
+            <img src="./assets/Ticket.jpg" alt="Lucky Draw Ticket" class="ticket-image">
+        </div>
+
+        <div class="draw-date">
+            <h3 style="margin: 0 0 15px 0; font-size: 1.3em; display: flex; align-items: center; gap: 10px;">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
+                    <path
+                        d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                </svg>
+                Lucky Draw Event Details
+            </h3>
+
+            <div class="draw-info-grid">
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zm2.5-7H18V2h-2v2H8V2H6v2H4.5C3.12 4 2 5.12 2 6.5v13C2 20.88 3.12 22 4.5 22h15c1.38 0 2.5-1.12 2.5-2.5v-13C22 5.12 20.88 4 19.5 4z" />
+                    </svg>
+                    <div class="info-content">
+                        <span class="info-label">Date & Time</span>
+                        <div class="info-value">30 August 2026<br>Sunday, 7:30pm</div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                    <div class="info-content">
+                        <span class="info-label">Venue</span>
+                        <div class="info-value">Dewan Serbaguna<br>Kampung Bratan/Asah</div>
+                    </div>
+                </div>
+
+                <div class="info-item" style="grid-column: 1 / -1;">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    <div class="info-content">
+                        <span class="info-label">Full Address</span>
+                        <div class="info-value">Bt. 16 Jln. Puncak Borneo, 93250 Kuching, Sarawak</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="price-highlight">
+            <svg viewBox="0 0 24 24" fill="currentColor"
+                style="width: 24px; height: 24px; margin-right: 8px; vertical-align: middle;">
+                <path
+                    d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+            </svg>
+            Ticket: RM 10 each
+        </div>
+
+        <div class="qr-info">
+            <svg viewBox="0 0 24 24" fill="currentColor"
+                style="width: 20px; height: 20px; margin-right: 8px; vertical-align: middle;">
+                <path
+                    d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4zM19 13h2v2h-2zM13 13h2v2h-2zM15 15h2v2h-2zM13 17h2v2h-2zM15 19h2v2h-2zM17 17h2v2h-2zM17 13h2v2h-2zM19 15h2v2h-2z" />
+            </svg>
+            Scan the QR code on your ticket to access event info and updates!
+        </div>
+
+        <div class="prizes-section">
+            <div class="prizes-header">
+                <h3>
+                    <svg viewBox="0 0 24 24" fill="currentColor" style="width: 28px; height: 28px;">
+                        <path
+                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                    Amazing Prizes Await!
+                </h3>
+            </div>
+
+            <div class="prizes-grid">
+                <!-- Grand Prize Card -->
+                <div class="prize-card grand-prize">
+                    <div class="prize-header">
+                        <div class="prize-icon">🚗</div>
+                        <div class="prize-title">
+                            <h4 class="prize-name">Grand Prize</h4>
+                            <p class="prize-subtitle">The Ultimate Winner</p>
+                        </div>
+                    </div>
+                    <div class="prize-description">
+                        <strong>Bezza 1.0 STD G</strong><br>
+                        Brand new car for one lucky winner!
+                    </div>
+                </div>
+
+                <!-- Cash Prizes Card -->
+                <div class="prize-card">
+                    <div class="prize-header">
+                        <div class="prize-icon">💰</div>
+                        <div class="prize-title">
+                            <h4 class="prize-name">Cash Prizes</h4>
+                            <p class="prize-subtitle">Multiple Winners</p>
+                        </div>
+                    </div>
+                    <div class="prize-description">
+                        <strong>10 Prizes worth RM2,000 each</strong><br>
+                        Ten lucky participants will win cash prizes!
+                    </div>
+                </div>
+
+                <!-- Consolation Prizes Card -->
+                <div class="prize-card">
+                    <div class="prize-header">
+                        <div class="prize-icon">🎁</div>
+                        <div class="prize-title">
+                            <h4 class="prize-name">Consolation Prizes</h4>
+                            <p class="prize-subtitle">Everyone Has a Chance</p>
+                        </div>
+                    </div>
+                    <div class="prize-description">
+                        Multiple consolation prizes including:
+                        <div class="consolation-grid">
+                            <div class="consolation-item">🏖️ Holiday Packages</div>
+                            <div class="consolation-item">🏨 Hotel Stays</div>
+                            <div class="consolation-item">✈️ Travel Packages</div>
+                            <div class="consolation-item">🩺 Health Screening</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="coming-soon">Website Coming Soon</div>
+        <p style="color:#0d7377; font-size:1.08em; margin:18px 0 0 0;">Online ticket purchasing will be available
+            soon!<br>Stay tuned for updates.</p>
+
+        <div class="contact-section">
+            <h3 style="color: #0d7377; margin-top: 0; display: flex; align-items: center; gap: 10px;">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+                    <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                Contact Information
+            </h3>
+            <div style="text-align: center; margin-bottom: 15px; color: #14a085; font-weight: 500;">
+                Email: stpaulbunuk@gmail.com
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-name">Lr. Henry Senok</div>
+                        <div class="contact-actions">
+                            <a href="tel:+60198908279" class="contact-phone-link">+60 19-890 8279</a>
+                            <a href="https://wa.me/60198908279" target="_blank" class="whatsapp-btn">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-name">Ts. John Rizal Biki</div>
+                        <div class="contact-actions">
+                            <a href="tel:+60128550632" class="contact-phone-link">+60 12-855 0632</a>
+                            <a href="https://wa.me/60128550631" target="_blank" class="whatsapp-btn">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                    </svg>
+                    <div class="contact-info">
+                        <div class="contact-name">En. Wisco Gen</div>
+                        <div class="contact-actions">
+                            <a href="tel:+60112518140" class="contact-phone-link">+60 11-2518 140</a>
+                            <a href="https://wa.me/601125181140" target="_blank" class="whatsapp-btn">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488" />
+                                </svg>
+                                WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-disclaimer">
+                ⚠️ <strong>Disclaimer:</strong> Feel free to call or WhatsApp the contact persons above for inquiries
+                about the lucky draw.
+                Click the phone numbers to call directly, or click the WhatsApp button to message them on WhatsApp.
+            </div>
+        </div>
+
         <div class="footer">
-            &copy; 2025 Church Building Lucky Draw
+            &copy; 2025 St. Paul Church Lucky Draw
         </div>
     </div>
 </body>
