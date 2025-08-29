@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>St. Paul Church Lucky Draw 2026 - Coming Soon</title>
+    <title>St. Paul Church Lucky Draw 2026</title>
     <style>
         body {
             background: linear-gradient(135deg, #a8e6cf 0%, #7fcdcd 50%, #88d8c0 100%);
@@ -409,12 +409,60 @@
             font-size: 0.85em;
             text-align: center;
         }
+
+        .map-section {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 128, 128, 0.15);
+        }
+
+        .map-header {
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: #f8f9fa;
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .map-footer {
+            padding: 12px 20px;
+            background: rgba(13, 115, 119, 0.05);
+            color: #0d7377;
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .map-footer a {
+            color: #14a085;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .map-footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <img src="https://img.icons8.com/ios-filled/100/000000/church.png" alt="Church Logo" class="logo">
         <h1>St. Paul Church, Bunuk</h1>
         <div class="subtitle">New Church Building Fundraising</div>
 
@@ -480,6 +528,29 @@
                         <div class="info-value">Bt. 16 Jln. Puncak Borneo, 93250 Kuching, Sarawak</div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="map-section">
+            <div class="map-header">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 24px; height: 24px;">
+                    <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+                <h4 style="margin: 0; font-size: 1.1em;">Event Location</h4>
+            </div>
+            <div class="map-container">
+                <iframe class="map-iframe"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.5234567890!2d110.3193365055127!3d1.3596944491223386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMcKwMjEnMzQuOSJOIDExMMKwMTknMDkuNiJF!5e0!3m2!1sen!2smy!4v1635000000000!5m2!1sen!2smy"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="map-footer">
+                📍 Dewan Serbaguna Kampung Bratan/Asah, Bt. 16 Jln. Puncak Borneo, 93250 Kuching, Sarawak<br>
+                <a href="https://www.google.com/maps/place/1°21'34.9%22N+110°19'09.6%22E/@1.3596944,110.3193365,17z"
+                    target="_blank">
+                    Open in Google Maps
+                </a>
             </div>
         </div>
 
