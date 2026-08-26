@@ -130,7 +130,7 @@
 
         .prizes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             grid-auto-flow: row dense;
             justify-content: stretch;
@@ -504,6 +504,87 @@
         .map-footer a:hover {
             text-decoration: underline;
         }
+
+        .map-footer-btn {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+            color: white !important;
+            border-radius: 20px;
+            text-decoration: none !important;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 3px 12px rgba(0, 128, 128, 0.3);
+        }
+
+        .map-footer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(0, 128, 128, 0.4);
+        }
+
+        .countdown-section {
+            margin: 30px 0;
+            padding: 28px clamp(16px, 4vw, 32px);
+            background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
+            border-radius: 16px;
+            color: white;
+            box-shadow: 0 6px 32px rgba(0, 128, 128, 0.25);
+        }
+
+        .countdown-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .countdown-subtitle {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 18px;
+            opacity: 0.95;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: clamp(8px, 2vw, 18px);
+            flex-wrap: wrap;
+            margin: 18px 0;
+        }
+
+        .countdown-unit {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 12px clamp(10px, 3vw, 18px);
+            min-width: 72px;
+            backdrop-filter: blur(6px);
+        }
+
+        .countdown-value {
+            font-size: clamp(1.6em, 5vw, 2.2em);
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.75em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+
+        .countdown-details {
+            margin-top: 18px;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        .countdown-details strong {
+            font-weight: 600;
+        }
     </style>
 </head>
 
@@ -528,6 +609,36 @@
             <div class="vision-text">
                 "Building more than walls - creating a sacred space where our community can gather, worship, and grow in
                 faith together."
+            </div>
+        </div>
+
+        <div class="countdown-section">
+            <div class="countdown-title">🎉 Mark Your Calendar! 🎉</div>
+            <div class="countdown-subtitle">🔥 The Big Draw Is Coming! 🔥</div>
+            <div class="countdown-timer" id="countdown-timer">
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="countdown-days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="countdown-hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="countdown-minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div class="countdown-value" id="countdown-seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+            <div class="countdown-details">
+                📅 <strong>30 August 2026 (Sunday)</strong><br>
+                ⏰ <strong>6:30 PM</strong><br>
+                🎟️ Get ready for the exciting Blessed Ticket Draw!<br>
+                📲 Live stream link coming soon!<br>
+                Stay tuned and don't miss the excitement! 🎊
             </div>
         </div>
 
@@ -588,6 +699,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="map-section">
@@ -607,7 +719,7 @@
             <div class="map-footer">
                 📍 Dewan Serbaguna Kampung Bratan/Asah, Bt. 16 Jln. Puncak Borneo, 93250 Kuching, Sarawak<br>
                 <a href="https://www.google.com/maps/place/1°21'34.9%22N+110°19'09.6%22E/@1.3596944,110.3193365,17z"
-                    target="_blank">
+                    target="_blank" class="map-footer-btn">
                     Open in Google Maps
                 </a>
             </div>
@@ -626,7 +738,7 @@
 
             <div class="prizes-grid">
                 <!-- Grand Prize Card -->
-                <div class="prize-card grand-prize">
+                <div class="prize-card grand-prize" style="grid-column: 1 / -1;">
                     <div class="prize-header">
                         <div class="prize-icon">🚗</div>
                         <div class="prize-title">
@@ -781,6 +893,43 @@
             &copy; 2025 St. Paul Church Lucky Draw
         </div>
     </div>
+
+    <script>
+        // Draw date/time in Malaysia time (UTC+8)
+        const drawDate = new Date('2026-08-30T18:30:00+08:00').getTime();
+
+        function updateCountdown() {
+            const diff = drawDate - Date.now();
+            const els = {
+                days: document.getElementById('countdown-days'),
+                hours: document.getElementById('countdown-hours'),
+                minutes: document.getElementById('countdown-minutes'),
+                seconds: document.getElementById('countdown-seconds')
+            };
+
+            if (diff <= 0) {
+                els.days.textContent = '00';
+                els.hours.textContent = '00';
+                els.minutes.textContent = '00';
+                els.seconds.textContent = '00';
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const minutes = Math.floor((diff / (1000 * 60)) % 60);
+            const seconds = Math.floor((diff / 1000) % 60);
+
+            els.days.textContent = String(days).padStart(2, '0');
+            els.hours.textContent = String(hours).padStart(2, '0');
+            els.minutes.textContent = String(minutes).padStart(2, '0');
+            els.seconds.textContent = String(seconds).padStart(2, '0');
+        }
+
+        updateCountdown();
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 
 </html>
