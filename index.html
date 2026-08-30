@@ -683,8 +683,7 @@
             <h3 style="color: #0d7377; margin: 24px 0 16px 0; font-size: 1.2em;">📱 Watch Live Stream</h3>
             <p style="color: #14a085; margin: 0 0 16px 0; font-size: 0.95em;">Scan the QR code or click below to join
                 the live draw on Facebook!</p>
-            <a href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=1057435113598824" target="_blank"
-                class="qr-code-link">
+            <a href="#" onclick="openFacebookLive(event)" class="qr-code-link">
                 <img src="./assets/QR Code.jpeg" alt="Facebook Live Stream QR Code" class="qr-code-image">
             </a>
         </div>
@@ -971,6 +970,27 @@
 
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Open Facebook live video - prioritize app on mobile
+        function openFacebookLive(event) {
+            event.preventDefault();
+
+            // Check if mobile device
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Try Facebook app first
+                window.location.href = 'fb://watch?v=1057435113598824';
+
+                // Fallback to web URL after a short delay if app doesn't open
+                setTimeout(() => {
+                    window.location.href = 'https://www.facebook.com/watch/live/?ref=watch_permalink&v=1057435113598824';
+                }, 1000);
+            } else {
+                // On desktop, open web URL directly
+                window.open('https://www.facebook.com/watch/live/?ref=watch_permalink&v=1057435113598824', '_blank');
+            }
+        }
     </script>
 </body>
 
