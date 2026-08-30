@@ -588,6 +588,36 @@
         .countdown-details strong {
             font-weight: 600;
         }
+
+        .qr-code-section {
+            margin: 30px 0;
+            padding: 24px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(20, 160, 133, 0.2);
+            text-align: center;
+        }
+
+        .qr-code-link {
+            display: inline-block;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 128, 128, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .qr-code-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 32px rgba(0, 128, 128, 0.25);
+        }
+
+        .qr-code-image {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            display: block;
+        }
     </style>
 </head>
 
@@ -649,6 +679,15 @@
             <img src="./assets/Ticket.jpg" alt="Lucky Draw Ticket" class="ticket-image">
         </div>
 
+        <div class="qr-code-section">
+            <h3 style="color: #0d7377; margin: 24px 0 16px 0; font-size: 1.2em;">📱 Watch Live Stream</h3>
+            <p style="color: #14a085; margin: 0 0 16px 0; font-size: 0.95em;">Scan the QR code or click below to join
+                the live draw on Facebook!</p>
+            <a href="https://www.facebook.com/watch/live/?ref=watch_permalink&v=1057435113598824" target="_blank"
+                class="qr-code-link">
+                <img src="./assets/QR Code.jpeg" alt="Facebook Live Stream QR Code" class="qr-code-image">
+            </a>
+        </div>
 
         <div class="price-highlight">
             <svg viewBox="0 0 24 24" fill="currentColor"
